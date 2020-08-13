@@ -8,7 +8,9 @@ def getLogger(name="root"):
     formatter = logging.Formatter(fmt)
 
     file_handler = logging.handlers.RotatingFileHandler(
-        os.environ.get("ARBIT_LOGFILE", "data/arbit.log")
+        filename=os.environ.get("ARBIT_LOGFILE", "data/arbit.log"),
+        maxBytes=1000000,
+        backupCount=10
     )
     file_handler.setFormatter(formatter)
 

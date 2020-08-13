@@ -141,3 +141,6 @@ cython_debug/
 _build
 _static
 _templates
+
+# Rotated logs
+*.log*
