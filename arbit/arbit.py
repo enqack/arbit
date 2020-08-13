@@ -1,5 +1,6 @@
 import asyncio
 from decimal import Decimal
+from distutils.util import strtobool
 import json
 import os
 import signal
@@ -26,7 +27,7 @@ POLLING_INTERVAL = int(os.environ.get("ARBIT_POLLING_INTERVAL", 5)) # 5 Seconds
 
 TOKENS_DATA_FILE = "../data/tokens.json"
 
-TRADING_ENABLED = os.environ.get("ARBIT_TRADING_ENABLED", False)
+TRADING_ENABLED = bool(strtobool(os.environ.get("ARBIT_TRADING_ENABLED", "0")))
 
 web3 = Web3(Web3.HTTPProvider(RPC_URL))
 
