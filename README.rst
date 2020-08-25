@@ -11,7 +11,7 @@ Quickstart
 
 .. code:: sh
 
-    git clone git@github.com:enqack/arbit.git
+    git clone https://github.com/enqack/arbit.git
     cd arbit
 
 Ubuntu prerequisites
@@ -37,7 +37,7 @@ Configure a python virtual environment for the bot as follows.
 
     python3.7 -m venv .venv
     . .venv/bin/activate
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
 
 Set environment variables by first copying the example file.
 
