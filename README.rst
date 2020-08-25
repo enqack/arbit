@@ -73,4 +73,4 @@ To run arbit as described below ensure you are in the root directory of the repo
 
 .. code:: sh
 
-    python arbit/arbit.py
+    python3 arbit/arbit.py
