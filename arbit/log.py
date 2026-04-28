@@ -1,24 +1,25 @@
 import logging
 import logging.handlers
-import os
+
+from arbit.config import Config
 
 
-def getLogger(name="root"):
+def setup_logger(config: Config) -> logging.Logger:
     fmt = "%(asctime)s - %(name)s - %(levelname)-8s - %(message)s"
     formatter = logging.Formatter(fmt)
 
     file_handler = logging.handlers.RotatingFileHandler(
-        filename=os.environ.get("ARBIT_LOGFILE", "data/arbit.log"),
-        maxBytes=1000000,
-        backupCount=10
+        filename=config.log_file,
+        maxBytes=1_000_000,
+        backupCount=10,
     )
     file_handler.setFormatter(formatter)
 
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
 
-    logger = logging.getLogger(name)
-    logger.setLevel(os.environ.get("ARBIT_LOGLEVEL", "INFO"))
+    logger = logging.getLogger("arbit")
+    logger.setLevel(config.log_level)
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
 
